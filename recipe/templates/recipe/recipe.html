@@ -1,0 +1,42 @@
+{% extends "recipe/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container-fluid">
+    <h1 class="display-4">Simply Recipes</h1>
+    <p class="lead">Variety of recipes and cooking-related articles with a focus on thoughtful and stylish living</p>
+    <hr class="my-4">
+    </p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Explore</a>
+  </div>
+</div>
+
+        <div class="container">
+            <h3 class=text-center>Featured Recipes</h3>
+            <hr>
+            <div class="row">
+              
+             
+                {% for recipe in recipe %}
+                <div class="col-sm-4">                    
+                    <div class="card border-info mb-3" style="width: 19rem;" >
+                       <img class="card" src="{{recipe.image.url}}"   alt="My image" height="200">
+                        <div class="card-body">
+                          <a href = "{% url 'detail' recipe.id %}" ><h5 class="card-title">{{recipe.title}}</h5></a>
+                         <small>{{ recipe.pub_date|date:"F d, Y"}}</small>
+                          <p class="card-text">{{recipe.description|truncatechars:107}}</p>                          
+                          <a class="btn btn-outline-secondary" href ="{% url 'update' recipe.id %}">Update</a>              
+                          <a class="btn btn-outline-danger" href ="{% url 'delete' recipe.id %}">Delete</a>
+                        </div>
+                      </div>
+                </div>
+
+                {% endfor %}          
+                     
+                    </div>  
+        </div>
+
+     
+{% endblock content %}

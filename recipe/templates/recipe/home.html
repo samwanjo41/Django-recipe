@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html  >
+<head>
+  <!-- Site made with Mobirise Website Builder v4.12.4, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.12.4, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/logo2.png" type="image/x-icon">
+  <meta name="description" content="">
+  
+  
+  <title>Home</title>
+  <link rel="stylesheet" href="{% static 'Template/assets/web/assets/mobirise-icons/mobirise-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'Template/assets/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'Template/assets/bootstrap/css/bootstrap-grid.min.css' %}">
+  <link rel="stylesheet" href="{% static 'Template/assets/bootstrap/css/bootstrap-reboot.min.css' %}">
+  <link rel="stylesheet" href="{% static 'Template/assets/socicon/css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'Template/assets/tether/tether.min.css' %}">
+  <link rel="stylesheet" href="{% static 'Template/assets/dropdown/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'Template/assets/theme/css/style.css' %}">
+  <link rel="preload" as="style" href="{% static 'Template/assets/mobirise/css/mbr-additional.css' %}">
+  <link rel="stylesheet" href="{% static 'Template/assets/mobirise/css/mbr-additional.css' %}" type="text/css">
+  
+  
+  
+</head>
+<body>
+  <section class="menu cid-s8G8IXLry9" once="menu" id="menu1-b">
+
+    
+
+    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
+        
+        <div class="menu-logo">
+            <div class="navbar-brand">
+               
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="#">Recipes</a></span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="#">Home</a></span>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            {% if user.is_authenticated %}
+            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+                <li class="nav-item">
+                    <a class="nav-link link text-white display-4" href="#">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link text-white display-4" href="#">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link text-white display-4" href="{% url 'create' %}">New Recipe</a>
+                </li>
+            </ul>
+
+            {% else %}
+            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+                <li class="nav-item">
+                    <a class="nav-link link text-white display-4" href="#">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link text-white display-4" href="#">Register</a>
+                </li>
+            </ul>
+            {% endif %}
+           
+        </div>
+    </nav>
+</section>
+
+
+<section class="header1 cid-s8G489t6DS mbr-fullscreen mbr-parallax-background" id="header1-3">   
+    <div class="mbr-overlay" style="opacity: 0.3; background-color: rgb(20, 157, 204);">
+    </div>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="mbr-white col-md-10">
+                <h1 class="mbr-section-title align-center mbr-bold pb-3 mbr-fonts-style display-2">Simply Recipes</h1>
+                
+                <p class="mbr-text align-center pb-3 mbr-fonts-style display-5">Variety of recipes and cooking-related articles with a focus on thoughtful and stylish living</p>
+                <div class="mbr-section-btn align-center">
+                    <a class="btn btn-md btn-white-outline display-7" href="#">EXPLORE</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="features18 popup-btn-cards cid-s8G5uxFiHj" id="features18-a">      
+    <div class="container">
+        <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-5">
+            Cool Recipes</h2>
+        <h3 class="mbr-section-subtitle display-5 align-center mbr-fonts-style mbr-light display-7">Featured Recipes</h3>
+
+        <div class="media-container-row pt-5 ">
+            {% for recipe in recipe %}
+            <div class="card p-3 col-12 col-md-6 col-lg-4">
+                <div class="card-wrapper ">
+                    <div class="card-img">
+                        <div class="mbr-overlay"></div>
+                        <div class="mbr-section-btn text-center"><a href="#" class="btn btn-primary display-4">Learn More</a></div>
+                        <img src="{{recipe.image.url}}" alt="Mobirise" title="">
+                    </div>
+                    <div class="card-box">
+                        <h4 class="card-title mbr-fonts-style display-7">
+                            {{recipe.title}}
+                        </h4>
+                        <h6 class="card-title mbr-fonts-style display-10">
+                            By {{user.username}} on <small>{{ recipe.pub_date|date:"F d, Y"}}
+                        </h6>
+                        <p class="mbr-text mbr-fonts-style align-left display-7">
+                            {{recipe.description|truncatechars:107}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+          
+                     
+        </div>
+    </div>
+</section>
+
+<section once="footers" class="cid-s8GbDIE8zs" id="footer7-c">    
+
+    <div class="container">
+        <div class="media-container-row align-center mbr-white">
+            <div class="row row-links">
+                <ul class="foot-menu">
+                    
+                    
+                    
+                    
+                    
+                <li class="foot-menu-item mbr-fonts-style display-7">
+                        <a class="text-white mbr-bold" href="#" target="_blank">About us</a>
+                    </li><li class="foot-menu-item mbr-fonts-style display-7">
+                        <a class="text-white mbr-bold" href="#" target="_blank">Services</a>
+                    </li><li class="foot-menu-item mbr-fonts-style display-7">
+                        <a class="text-white mbr-bold" href="#" target="_blank">Get In Touch</a>
+                    </li><li class="foot-menu-item mbr-fonts-style display-7">
+                        <a class="text-white mbr-bold" href="#" target="_blank">Careers</a>
+                    </li><li class="foot-menu-item mbr-fonts-style display-7">
+                        <a class="text-white mbr-bold" href="#" target="_blank">Work</a>
+                    </li></ul>
+            </div>
+            <div class="row social-row">
+                <div class="social-list align-right pb-2">
+                    
+                    
+                    
+                    
+                    
+                    
+                <div class="soc-item">
+                        <a href="https://twitter.com/mobirise" target="_blank">
+                            <span class="socicon-twitter socicon mbr-iconfont mbr-iconfont-social"></span>
+                        </a>
+                    </div><div class="soc-item">
+                        <a href="https://www.facebook.com/pages/Mobirise/1616226671953247" target="_blank">
+                            <span class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
+                        </a>
+                    </div><div class="soc-item">
+                        <a href="https://www.youtube.com/c/mobirise" target="_blank">
+                            <span class="socicon-youtube socicon mbr-iconfont mbr-iconfont-social"></span>
+                        </a>
+                    </div><div class="soc-item">
+                        <a href="https://instagram.com/mobirise" target="_blank">
+                            <span class="socicon-instagram socicon mbr-iconfont mbr-iconfont-social"></span>
+                        </a>
+                    </div><div class="soc-item">
+                        <a href="https://plus.google.com/u/0/+Mobirise" target="_blank">
+                            <span class="socicon-googleplus socicon mbr-iconfont mbr-iconfont-social"></span>
+                        </a>
+                    </div><div class="soc-item">
+                        <a href="https://www.behance.net/Mobirise" target="_blank">
+                            <span class="socicon-behance socicon mbr-iconfont mbr-iconfont-social"></span>
+                        </a>
+                    </div></div>
+            </div>
+            <div class="row row-copirayt">
+                <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
+                    © Copyright 2020 Mobirise - All Rights Reserved
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <script src="{% static 'Template/assets/web/assets/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'Template/assets/popper/popper.min.js' %}"></script>
+  <script src="{% static 'Template/assets/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'Template/assets/smoothscroll/smooth-scroll.js' %}"></script>
+  <script src="{% static 'Template/assets/tether/tether.min.js' %}"></script>
+  <script src="{% static 'Template/assets/touchswipe/jquery.touch-swipe.min.js' %}"></script>
+  <script src="{% static 'Template/assets/parallax/jarallax.min.js' %}"></script>
+  <script src="{% static 'Template/assets/mbr-popup-btns/mbr-popup-btns.js' %}"></script>
+  <script src="{% static 'Template/assets/dropdown/js/nav-dropdown.js' %}"></script>
+  <script src="{% static 'Template/assets/dropdown/js/navbar-dropdown.js' %}"></script>
+  <script src="{% static 'Template/assets/theme/js/script.js' %}"></script>
+  
+  
+</body>
+</html>

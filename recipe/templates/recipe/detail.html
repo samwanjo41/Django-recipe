@@ -1,0 +1,22 @@
+{% extends "recipe/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    
+
+<main role="main" class="container">
+  <h2>{{recipe.title}}</h2>
+  <hr>
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-detail" src="{{recipe.image.url}}"   alt="My image">
+      </div>
+      <div class="col-md-6">
+          <h3>Recipe Steps</h3>
+        <div class="content-section">
+            <p class="card-text">{{recipe.description}}</p>      
+        </div>
+      </div>
+    </div>
+  </main>
+
+  {% endblock content %}

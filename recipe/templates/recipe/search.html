@@ -1,0 +1,28 @@
+{% extends "recipe/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    
+        <div class="container">
+            <div class="row">
+             
+                {% for recipe in recipe %}
+                <div class="col-sm-4">
+                    <div class="card border-info mb-3" style="width: 19rem;" >
+                       <img class="card" src="{{recipe.image.url}}"   alt="My image">
+                        <div class="card-body">
+                          <a href = "{% url 'detail' recipe.id %}" ><h5 class="card-title">{{recipe.title}}</h5></a>
+                          <h6 class="card-title">By {{user.username}} on <small>{{ recipe.pub_date|date:"F d, Y"}}</small></h6>
+                          <p class="card-text">{{recipe.description|truncatechars:107}}</p>                          
+                          <a class="btn btn-outline-secondary" href ="{% url 'update' recipe.id %}">Update</a>              
+                          <a class="btn btn-outline-danger" href ="{% url 'delete' recipe.id %}">Delete</a>
+                        </div>
+                      </div>
+                </div>
+
+                {% endfor %}          
+                     
+                    </div>  
+        </div>
+
+     
+{% endblock content %}
