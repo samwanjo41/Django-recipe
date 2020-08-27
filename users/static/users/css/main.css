@@ -91,10 +91,6 @@ body {
     object-fit: cover;
 }
 
- .container-fluid  {
- background: black;
- background-size: cover;
-}
 
 .jumbotron{
   background-image: url("https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2020%2F08%2F24%2F7765118_original.jpg&w=720&h=403&c=sc&poi=face&q=85");
@@ -103,6 +99,7 @@ body {
   color:white;
   height:630px;
   font-weight: bold;
+  margin-top: 0;
 }
 .display-4  {
   color:white;
