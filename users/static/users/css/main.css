@@ -97,7 +97,7 @@ body {
   background-size:cover;
   width: 100%;
   color:white;
-  height:630px;
+  height:600px;
   font-weight: bold;
   margin-top: 0;
 }
@@ -110,4 +110,6 @@ body {
   color:white;
   font-weight: bold;
 }
-
+.navbar {
+  margin-bottom: 0%;
+}
